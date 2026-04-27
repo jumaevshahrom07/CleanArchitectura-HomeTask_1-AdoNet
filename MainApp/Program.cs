@@ -442,167 +442,167 @@ void GetMovieById()
 
 
 
-var ticketService = new TicketService();
+// var ticketService = new TicketService();
 
-while (true)
-{
-    Console.WriteLine("\nTICKET MENU");
-    Console.WriteLine("1. Show Tickets");
-    Console.WriteLine("2. Add Ticket");
-    Console.WriteLine("3. Update Ticket");
-    Console.WriteLine("4. Delete Ticket");
-    Console.WriteLine("5. Get Ticket By Id");
-    Console.WriteLine("6. Buy Ticket");
-    Console.WriteLine("0. Exit");
-    Console.Write("Choose: ");
+// while (true)
+// {
+//     Console.WriteLine("\nTICKET MENU");
+//     Console.WriteLine("1. Show Tickets");
+//     Console.WriteLine("2. Add Ticket");
+//     Console.WriteLine("3. Update Ticket");
+//     Console.WriteLine("4. Delete Ticket");
+//     Console.WriteLine("5. Get Ticket By Id");
+//     Console.WriteLine("6. Buy Ticket");
+//     Console.WriteLine("0. Exit");
+//     Console.Write("Choose: ");
 
-    int choice = Convert.ToInt32(Console.ReadLine());
+//     int choice = Convert.ToInt32(Console.ReadLine());
 
-    switch (choice)
-    {
-        case 1:
-            GetTickets();
-            break;
+//     switch (choice)
+//     {
+//         case 1:
+//             GetTickets();
+//             break;
 
-        case 2:
-            AddTicket();
-            break;
+//         case 2:
+//             AddTicket();
+//             break;
 
-        case 3:
-            UpdateTicket();
-            break;
+//         case 3:
+//             UpdateTicket();
+//             break;
 
-        case 4:
-            DeleteTicket();
-            break;
+//         case 4:
+//             DeleteTicket();
+//             break;
 
-        case 5:
-            GetTicketById();
-            break;
+//         case 5:
+//             GetTicketById();
+//             break;
 
-        case 6:
-            BuyTicket();
-            break;
+//         case 6:
+//             BuyTicket();
+//             break;
 
-        case 0:
-            return;
+//         case 0:
+//             return;
 
-        default:
-            Console.WriteLine("Wrong choice!");
-            break;
-    }
-}
+//         default:
+//             Console.WriteLine("Wrong choice!");
+//             break;
+//     }
+// }
 
-void GetTickets()
-{
-    var tickets = ticketService.GetAllTickets();
+// void GetTickets()
+// {
+//     var tickets = ticketService.GetAllTickets();
 
-    if (tickets.Count == 0)
-    {
-        Console.WriteLine("No tickets found");
-        return;
-    }
+//     if (tickets.Count == 0)
+//     {
+//         Console.WriteLine("No tickets found");
+//         return;
+//     }
 
-    foreach (var t in tickets)
-    {
-        Console.WriteLine($"{t.Id} | {t.ScreeningId} | {t.CustomerName} | {t.SeatNumber} | {t.PurchaseTime} | {t.Price} | {t.PaymentMethod}");
-    }
-}
+//     foreach (var t in tickets)
+//     {
+//         Console.WriteLine($"{t.Id} | {t.ScreeningId} | {t.CustomerName} | {t.SeatNumber} | {t.PurchaseTime} | {t.Price} | {t.PaymentMethod}");
+//     }
+// }
 
-void AddTicket()
-{
-    var ticket = new Ticket();
+// void AddTicket()
+// {
+//     var ticket = new Ticket();
 
-    Console.Write("Screening Id: ");
-    ticket.ScreeningId = Convert.ToInt32(Console.ReadLine());
+//     Console.Write("Screening Id: ");
+//     ticket.ScreeningId = Convert.ToInt32(Console.ReadLine());
 
-    Console.Write("Customer Name: ");
-    ticket.CustomerName = Console.ReadLine();
+//     Console.Write("Customer Name: ");
+//     ticket.CustomerName = Console.ReadLine();
 
-    Console.Write("Seat Number: ");
-    ticket.SeatNumber = Console.ReadLine();
+//     Console.Write("Seat Number: ");
+//     ticket.SeatNumber = Console.ReadLine();
 
-    Console.Write("Purchase Time: ");
-    ticket.PurchaseTime = Convert.ToDateTime(Console.ReadLine());
+//     Console.Write("Purchase Time: ");
+//     ticket.PurchaseTime = Convert.ToDateTime(Console.ReadLine());
 
-    Console.Write("Price: ");
-    ticket.Price = Convert.ToDecimal(Console.ReadLine());
+//     Console.Write("Price: ");
+//     ticket.Price = Convert.ToDecimal(Console.ReadLine());
 
-    Console.Write("Payment Method: ");
-    ticket.PaymentMethod = Console.ReadLine();
+//     Console.Write("Payment Method: ");
+//     ticket.PaymentMethod = Console.ReadLine();
 
-    ticketService.AddTicket(ticket);
+//     ticketService.AddTicket(ticket);
 
-    Console.WriteLine("Ticket added!");
-}
+//     Console.WriteLine("Ticket added!");
+// }
 
-void UpdateTicket()
-{
-    var ticket = new Ticket();
+// void UpdateTicket()
+// {
+//     var ticket = new Ticket();
 
-    Console.Write("Id: ");
-    ticket.Id = Convert.ToInt32(Console.ReadLine());
+//     Console.Write("Id: ");
+//     ticket.Id = Convert.ToInt32(Console.ReadLine());
 
-    Console.Write("Screening Id: ");
-    ticket.ScreeningId = Convert.ToInt32(Console.ReadLine());
+//     Console.Write("Screening Id: ");
+//     ticket.ScreeningId = Convert.ToInt32(Console.ReadLine());
 
-    Console.Write("Customer Name: ");
-    ticket.CustomerName = Console.ReadLine();
+//     Console.Write("Customer Name: ");
+//     ticket.CustomerName = Console.ReadLine();
 
-    Console.Write("Seat Number: ");
-    ticket.SeatNumber = Console.ReadLine();
+//     Console.Write("Seat Number: ");
+//     ticket.SeatNumber = Console.ReadLine();
 
-    Console.Write("Purchase Time: ");
-    ticket.PurchaseTime = Convert.ToDateTime(Console.ReadLine());
+//     Console.Write("Purchase Time: ");
+//     ticket.PurchaseTime = Convert.ToDateTime(Console.ReadLine());
 
-    Console.Write("Price: ");
-    ticket.Price = Convert.ToDecimal(Console.ReadLine());
+//     Console.Write("Price: ");
+//     ticket.Price = Convert.ToDecimal(Console.ReadLine());
 
-    Console.Write("Payment Method: ");
-    ticket.PaymentMethod = Console.ReadLine();
+//     Console.Write("Payment Method: ");
+//     ticket.PaymentMethod = Console.ReadLine();
 
-    ticketService.UpdateTicket(ticket);
+//     ticketService.UpdateTicket(ticket);
 
-    Console.WriteLine("Ticket updated!");
-}
+//     Console.WriteLine("Ticket updated!");
+// }
 
-void DeleteTicket()
-{
-    Console.Write("Id: ");
-    int id = Convert.ToInt32(Console.ReadLine());
+// void DeleteTicket()
+// {
+//     Console.Write("Id: ");
+//     int id = Convert.ToInt32(Console.ReadLine());
 
-    ticketService.DeleteTicket(id);
+//     ticketService.DeleteTicket(id);
 
-    Console.WriteLine("Ticket deleted!");
-}
+//     Console.WriteLine("Ticket deleted!");
+// }
 
-void GetTicketById()
-{
-    Console.Write("Id: ");
-    int id = Convert.ToInt32(Console.ReadLine());
+// void GetTicketById()
+// {
+//     Console.Write("Id: ");
+//     int id = Convert.ToInt32(Console.ReadLine());
 
-    var ticket = ticketService.GetTicketById(id);
+//     var ticket = ticketService.GetTicketById(id);
 
-    if (ticket == null)
-    {
-        Console.WriteLine("Ticket not found");
-        return;
-    }
+//     if (ticket == null)
+//     {
+//         Console.WriteLine("Ticket not found");
+//         return;
+//     }
 
-    Console.WriteLine($"{ticket.Id} | {ticket.ScreeningId} | {ticket.CustomerName} | {ticket.SeatNumber} | {ticket.PurchaseTime} | {ticket.Price} | {ticket.PaymentMethod}");
-}
+//     Console.WriteLine($"{ticket.Id} | {ticket.ScreeningId} | {ticket.CustomerName} | {ticket.SeatNumber} | {ticket.PurchaseTime} | {ticket.Price} | {ticket.PaymentMethod}");
+// }
 
-void BuyTicket()
-{
-    Console.Write("Screening Id: ");
-    int screeningId = Convert.ToInt32(Console.ReadLine());
+// void BuyTicket()
+// {
+//     Console.Write("Screening Id: ");
+//     int screeningId = Convert.ToInt32(Console.ReadLine());
 
-    Console.Write("Customer Name: ");
-    string customerName = Console.ReadLine();
+//     Console.Write("Customer Name: ");
+//     string customerName = Console.ReadLine();
 
-    Console.Write("Seat Number: ");
-    string seatNumber = Console.ReadLine();
+//     Console.Write("Seat Number: ");
+//     string seatNumber = Console.ReadLine();
 
-    Console.Write("Price: ");
-    decimal price = Convert.ToDecimal(Console.ReadLine());
-}
+//     Console.Write("Price: ");
+//     decimal price = Convert.ToDecimal(Console.ReadLine());
+// }
